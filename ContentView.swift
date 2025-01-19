@@ -2,44 +2,27 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        
-        NavigationStack {
-            VStack{
-                Spacer()
-            }
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Text("AutoSpots")
+        TabView {
+            // Home Tab
+            HomeView()
+                .tabItem {
+                    Image(systemName: "house")
+                    Text("Home")
                 }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: {
-                        // Todo
-                    }, label: {
-                        Image(systemName: "plus")
-                    })
+            
+            // Inbox Tab
+            InboxView()
+                .tabItem {
+                    Image(systemName: "message")
+                    Text("Inbox")
                 }
-            }
-        }
-            TabView {
-                Spacer()
-                    .tabItem {
-                        Image(systemName: "house")
-                        Text("Home")
-                    }
-                
-                Spacer()
-                    .tabItem {
-                        Image(systemName: "bell")
-                        Text("Inbox")
-                    }
-                
-                Spacer()
-                    .tabItem{
-                        Image(systemName: "person")
-                        Text("Profile")
-                    }
-            }
+            
+            // Profile Tab
+            ProfileView()
+                .tabItem {
+                    Image(systemName: "person")
+                    Text("Profile")
+                }
         }
     }
-
+}
